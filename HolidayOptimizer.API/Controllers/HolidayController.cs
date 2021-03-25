@@ -16,6 +16,8 @@ namespace HolidayOptimizer.Controllers
         
         [HttpGet]
         [Route("highest_amount_country")]
+        [ProducesResponseType(typeof(Country), 200)]
+        [ProducesResponseType(404)]
         public async Task<IActionResult> GetCountryWithHighestAmount(int year)
         {
             var countryCode = await _holidayStatsCalculator.GetCountryWithHighestHolidaysAmount(year);
@@ -26,6 +28,8 @@ namespace HolidayOptimizer.Controllers
         
         [HttpGet]
         [Route("highest_amount_month")]
+        [ProducesResponseType(typeof(Month), 200)]
+        [ProducesResponseType(404)]
         public async Task<IActionResult> GetMonthWithHighestAmount(int year)
         {
             var month = await _holidayStatsCalculator.GetMonthWithHighestHolidaysAmount(year);
@@ -40,6 +44,8 @@ namespace HolidayOptimizer.Controllers
 
         [HttpGet]
         [Route("highest_unique_amount_country")]
+        [ProducesResponseType(typeof(Country), 200)]
+        [ProducesResponseType(404)]
         public async Task<IActionResult> GetCountryWithHighestUniqueAmount(int year)
         {
             var countryCode = await _holidayStatsCalculator.GetCountryWithHighestUniqueHolidaysAmount(year);
